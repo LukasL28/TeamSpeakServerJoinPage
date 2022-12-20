@@ -9,14 +9,13 @@ body {
 }
 
 .flex-wrapper{
-    scale: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     .container{
-        background-color: #3c444b;
+        background-color: #252A33;
         width: 480px;
         padding: 30px;
         border-radius: 6px;
@@ -45,15 +44,15 @@ body {
         a{
             text-decoration: none;
             text-align: center;
-            color: #fff;
-            background: linear-gradient(135deg,#1c2538 0,#131824 100%);
+            color: #CCCCCD;
+            background-color: #353844;
             width: 80%;
             padding: 10px 20px;
             border-radius: 3px;
             transition: 0.3s;
             &:hover{
                 transition: 0.3s;
-                background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(135deg,#1c2538 0,#131824 100%);
+                background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #353844;
             }
         }
     }
