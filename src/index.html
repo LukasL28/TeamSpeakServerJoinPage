@@ -8,10 +8,42 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+                var webserver_ip = location.host; // get web-server ip
+
+        function ws_connect(ip) {
+            // Create WebSocket connection.
+            const socket = new WebSocket('ws://' + ip);
+
+            // Connection opened
+            socket.addEventListener('open', function (event) {
+                console.log('Connected to WS Server on ' + ip)
+            });
+            // Listen for messages
+            socket.addEventListener('message', function (event) {
+                var data = JSON.parse(event.data);
+                data = data[0]
+                document.getElementById("ServerName").innerHTML = data.Server_Name;
+                document.getElementById("icon").src = data.Server_Icon_URL;
+                document.getElementById("icon").alt = data.Server_Name;
+                setFavicons(data.Favicon);
+            });
+            }
+        ws_connect(webserver_ip)
+
+        function setFavicons(favImg){
+    let headTitle = document.querySelector('head');
+    let setFavicon = document.createElement('link');
+    setFavicon.setAttribute('rel','shortcut icon');
+    setFavicon.setAttribute('href',favImg);
+    headTitle.appendChild(setFavicon);
+}
+
+    </script>
     <div class="flex-wrapper">
         <div class="container">
-            <img class="icon" src="https://img.rive-official.com/i/bcb37c61-b495-41e3-a13b-ecab4686a09a.png" alt="Rive Logo">
-            <h1 id="ServerName">Server Name</h1>
+            <img id="icon" class="icon" src="" alt="">
+            <h1 id="ServerName"></h1>
             <p id="Stats"></p>
             <a id="Link" href="ts3server://Rive">Verbinden</a>
         </div>
