@@ -26,7 +26,7 @@
                 document.getElementById("ServerName").innerHTML = data.Server_Name;
                 document.getElementById("icon").src = data.Server_Icon_URL;
                 document.getElementById("icon").alt = data.Server_Name;
-                document.getElementById("link").href = "ts3server://" + data.Server_Address + "?port=" + data.Server_Port + "&addbookmark=" + data.Server_Name ;
+                document.getElementById("link").href = data.url;
                 setFavicons(data.Favicon);
             });
             }
