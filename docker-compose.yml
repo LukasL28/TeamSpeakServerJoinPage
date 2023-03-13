@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_ICON_URL=https://img.rive-official.com/i/31d82a3b-f775-4476-91dd-704413f5e1a2.png
+      - SERVER_ADDRESS=Rive
+      - SERVER_PORT=9987
+      - SERVER_BOOKMARK=Rive
+      # - SERVER_PASSWORD=
+      # - JOIN_CHANNEL=
+      # - JOIN_CHANNEL_PASSWORD=
+      # - TOKEN=
+      - FAVICON=https://img.rive-official.com/i/31d82a3b-f775-4476-91dd-704413f5e1a2.png
