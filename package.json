@@ -1,0 +1,15 @@
+{
+  "name": "teamspeakserverjoinpage",
+  "version": "1.0.0",
+  "description": "A small application, that shows you a Discord like server join page for you ts3 Server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LukasL28",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.59.2"
+  }
+}
