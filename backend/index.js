@@ -23,7 +23,6 @@ app.use(express.static("../src")); //main web-server
 wss.on(
     "connection",
     (connection = (ws) => {
-        console.log("A new client Connected!");
         ws.send(JSON.stringify(data));
     })
 );
