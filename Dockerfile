@@ -11,7 +11,8 @@ FROM node:19.7.0
 ENV NODE_ENV=production
 WORKDIR /app
 EXPOSE 8080
-COPY --from=build /build/dist /app/web_data
+COPY --from=build /build/dist /app/dist
 COPY --from=build /build/backend /app/server
-RUN cd /app/server && npm install --omit=dev
+WORKDIR /app/server
+RUN npm install --omit=dev
 CMD [ "npm", "start" ]
