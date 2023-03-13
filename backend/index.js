@@ -18,7 +18,7 @@ server.listen(8080, () => {
     console.log("Webserver läuft und hört auf Port ", 8080); //successful start notification
 });
 
-app.use(express.static("../src")); //main web-server
+app.use(express.static("../dist")); //main web-server
 
 wss.on(
     "connection",
