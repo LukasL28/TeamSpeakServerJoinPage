@@ -9,7 +9,7 @@ function copyHtml() {
 function buildStyles() {
     return gulp.src('./src/scss/**/*.scss')
       .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('.dist/css'));
+      .pipe(gulp.dest('dist/css'));
   };
 
 exports.copyHtml = copyHtml;
