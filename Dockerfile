@@ -2,9 +2,9 @@ FROM node:19.7.0 AS build
 ENV NODE_ENV=production
 RUN npm install --global gulp-cli
 COPY ["package.json", "package-lock.json*", "./"]
-RUN npm install --only=dev
+RUN npm install
 COPY . .
-RUN gulp
+RUN npm run build
 
 FROM node:19.7.0
 ENV NODE_ENV=production
