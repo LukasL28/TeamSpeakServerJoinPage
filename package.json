@@ -7,6 +7,7 @@
   },
   "author": "LukasL28",
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
