@@ -1,4 +1,4 @@
-name: Rive DC Bot
+name: Docker
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: TeamSpeakServerJoinPage
+  IMAGE_NAME: teamspeakserver_joinpage
 
 jobs:
   # Push image to GitHub Packages.
