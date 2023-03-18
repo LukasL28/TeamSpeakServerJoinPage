@@ -3,9 +3,17 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: 'Hind Siliguri';
+    font-style: Light;
+    font-weight: 300;
+    src: local('/fonts/HindSiliguri-Light.ttf'), url('/fonts/HindSiliguri-Light.ttf') format('truetype');
+  }
+
 body {
     background: linear-gradient(135deg,#1c2538 0,#131824 100%);
     overflow: hidden;
+    font-family: 'Hind Siliguri', sans-serif;
 }
 
 .flex-wrapper{
