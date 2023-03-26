@@ -6,6 +6,7 @@ var data = [
         Server_Icon_URL: process.env.SERVER_ICON_URL,
         url: create_link(),
         Favicon: process.env.FAVICON,
+        Title: process.env.TITLE,
     },
 ];
 
