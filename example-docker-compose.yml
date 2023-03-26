@@ -1,8 +1,6 @@
-services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  invite_page:
+    image: ghcr.io/lukasl28/teamspeakserver_joinpage:main
+    restart: always
     ports:
       - "8080:8080"
     environment:
