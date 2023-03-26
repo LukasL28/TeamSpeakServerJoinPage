@@ -1,6 +1,5 @@
 const express = require("express");
 const ws = require("ws");
-const cors = require("cors");
 const { json } = require("express");
 
 const data = require("./js/staticdata.js");
