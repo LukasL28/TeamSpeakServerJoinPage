@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-                var webserver_ip = location.host; // get web-server ip
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/index.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function loadJSON(path, success, error) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            success(JSON.parse(xhr.responseText));
+                        } else {
+                            error(xhr);
+                        }
+                    }
+                };
+                xhr.open("GET", path, true);
+                xhr.send();
+            }
 
-        function ws_connect(ip) {
-            // Create WebSocket connection.
-            const socket = new WebSocket('ws://' + ip);
+            loadJSON("./static-data", json_data, "jsonp");
 
-            // Connection opened
-            socket.addEventListener('open', function (event) {
-            });
-            // Listen for messages
-            socket.addEventListener('message', function (event) {
-                var data = JSON.parse(event.data);
-                data = data[0]
-                document.getElementById("ServerName").innerHTML = data.Server_Name;
+            function json_data(data) {
+                data = data[0];
+                document.getElementById("ServerName").innerHTML =
+                    data.Server_Name;
                 document.getElementById("icon").src = data.Server_Icon_URL;
                 document.getElementById("icon").alt = data.Server_Name;
                 document.getElementById("link").href = data.url;
                 setFavicons(data.Favicon);
-            });
             }
-        ws_connect(webserver_ip)
 
-        function setFavicons(favImg){
-    let headTitle = document.querySelector('head');
-    let setFavicon = document.createElement('link');
-    setFavicon.setAttribute('rel','shortcut icon');
-    setFavicon.setAttribute('href',favImg);
-    headTitle.appendChild(setFavicon);
-}
-
-    </script>
-    <div class="flex-wrapper">
-        <div class="container">
-            <img id="icon" class="icon" src="" alt="">
-            <h1 id="ServerName"></h1>
-            <a id="link" href="">Verbinden</a>
+            function setFavicons(favImg) {
+                let headTitle = document.querySelector("head");
+                let setFavicon = document.createElement("link");
+                setFavicon.setAttribute("rel", "shortcut icon");
+                setFavicon.setAttribute("href", favImg);
+                headTitle.appendChild(setFavicon);
+            }
+        </script>
+        <div class="flex-wrapper">
+            <div class="container">
+                <img id="icon" class="icon" src="" alt="" />
+                <h1 id="ServerName"></h1>
+                <a id="link" href="">Verbinden</a>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
