@@ -23,6 +23,22 @@
                 xhr.send();
             }
 
+            let live_data = () => {
+                loadJSON("./live-data", live_json_data, "jsonp");
+                function live_json_data(data) {
+                    if (data == "disabled") {
+                        document.getElementById("stats").remove();
+                        return;
+                    }
+                    data = data.split(",");
+                    online = data[0];
+                    max = data[1];
+                    status = data[2];
+                    document.getElementById("stats").innerHTML =
+                        online + " / " + max;
+                }
+            };
+
             loadJSON("./static-data", json_data, "jsonp");
 
             function json_data(data) {
@@ -43,11 +59,22 @@
                 setFavicon.setAttribute("href", favImg);
                 headTitle.appendChild(setFavicon);
             }
+
+            do {
+                live_data();
+            } while (false);
+
+            let delay = 1000; // Delay in milliseconds (1 second)
+            setTimeout(function loop() {
+                live_data();
+                setTimeout(loop, delay);
+            }, delay);
         </script>
         <div class="flex-wrapper">
             <div class="container">
                 <img id="icon" class="icon" src="" alt="" />
                 <h1 id="ServerName"></h1>
+                <h2 id="stats"></h2>
                 <a id="link" href="">Verbinden</a>
             </div>
         </div>
