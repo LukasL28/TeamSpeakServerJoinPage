@@ -6,14 +6,48 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SERVER_NAME=MY SERVER
-      - SERVER_ICON_URL=URL
-      - SERVER_ADDRESS=MYSERVER.example
-      # - SERVER_PORT=PORT
-      # - SERVER_BOOKMARK=BOOKMARK NAME
+      - SERVER_NAME=MY Server
+
+      - SERVER_ICON_URL= URL
+
+      # Can also be a TS3 Nickname
+      - SERVER_ADDRESS= ADDRESS
+
+      # Default 9987
+      # - SERVER_PORT=
+
+      # Default disabled
+      # - SERVER_BOOKMARK=
+
+      # Default disabled
       # - SERVER_PASSWORD=
+
+      # Default disabled
       # - JOIN_CHANNEL=
+
+      # Default disabled
       # - JOIN_CHANNEL_PASSWORD=
+
+      # Default disabled
       # - TOKEN=
-      - TITLE=MY SERVER TITLE
-      - FAVICON=URL
+
+      - FAVICON= URL
+
+      # For live data, if no SERVER_QUARRY_KEY is specified the feature is disabled
+      - SERVER_QUARRY_API_KEY =
+
+      # Default port 8080
+      # - SERVER_QUARRY_PORT =
+
+      - SERVER_QUARRY_URL =
+
+      # Default 1
+      # - VIRTUAL_SERVER_ID =
+
+      # Default: exclude_quarry
+      # Modes: exclude_quarry, all
+      # - CALCULATE_ONLINE_MODE =
+
+      # Default: exclude_reserved
+      # Modes: exclude_reserved, all, separate
+      # - CALCULATE_SLOTS_MODE = 
