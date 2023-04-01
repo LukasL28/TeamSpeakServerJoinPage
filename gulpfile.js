@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const { src, series, parallel, dest} = require('gulp');
+const { src, series, parallel, watch} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
 function copyHtml() {
@@ -21,3 +21,9 @@ exports.buildStyles = buildStyles;
 exports.default = series(
   parallel(copyHtml, buildStyles, copyFonts)
 );
+
+exports.dev = function() {
+  watch('src/scss/**/*.scss', buildStyles);
+  watch('src/*.html', copyHtml);
+  watch('src/fonts/**/*', copyFonts);
+};

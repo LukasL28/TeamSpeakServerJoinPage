@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "A small application, that shows you a Discord like server join page for you ts3 Server",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "dev": "gulp dev"
   },
   "author": "LukasL28",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
