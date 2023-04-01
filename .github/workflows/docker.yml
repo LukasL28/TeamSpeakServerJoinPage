@@ -3,7 +3,9 @@ name: Docker
 on:
   workflow_dispatch:
   # Run tests for any PRs.
-  pull_request:
+  push:
+    tags:
+      - v*.**
 
 env:
   IMAGE_NAME: teamspeakserver_joinpage
